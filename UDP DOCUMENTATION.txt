@@ -1,0 +1,15 @@
+
+AIM:  UDP USER DATAGRAM PROTOCOL
+
+BRIEF: 
+getbytes() function in java is used to convert a string into a sequence of bytes and returns an array of bytes.
+DatagramSockets are Java’s mechanism for network communication via UDP instead of TCP. Java provides DatagramSocket to communicate over UDP instead of TCP. It is also built on top of IP. 
+DatagramSockets can be used to both send and receive packets over the Internet.
+One of the examples where UDP is preferred over TCP is the live coverage of TV channels. In this aspect, we want to transmit as many frames to live audience as possible not 
+worrying about the loss of one or two frames. TCP being a reliable protocol add its own overhead while transmission.Another example where UDP is preferred is online multiplayer gaming. 
+In games like counter-strike or call of duty, it is not necessary to relay all the information but the most important ones. It should also be noted that most of the applications in real life uses 
+careful blend of both UDP and TCP; transmitting the critical data over TCP and rest of the data via UDP.
+
+CONCLUSION :
+It is connectionless and less reliable protocol.  It allows fast delivery, which is highly valuable for a number of applications. UDP finds its purpose in many services despite the fact it 
+has some downsides, mainly in DNS, video streaming, and gaming.

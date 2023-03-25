@@ -1,0 +1,58 @@
+
+AIM:  TCP CLIENT-SERVER COMMMUNICATION
+
+EXPLANATION: 
+
+Firstly, we are adding a Library full of classes and methods that are premade for ease of use.
+In this application, client sends a message to the server, server reads the message and prints it. 
+Here, two classes are being used: Client and Server. The Client class is used to communicate client and server. Through this class, we can read and write message. The Server class is used at server-side. 
+
+****************************************AT CLIENT SIDE****************************************
+First, we'll connect to the server and the Socket constructor throws an IOException if it cannot make a connection and the control goes to the catch block.
+The catch block contains code that is executed if and when the exception handler is invoked.
+
+After connecting to the server we'll establish a socket connection.
+To connect to another machine we need a socket connection. A socket connection means the two machines have information about each other’s network location (IP Address) and TCP port. 
+To open a socket: 
+Socket socket = new Socket("localhost",1234)
+To communicate over a socket connection, streams are used to both input and output the data. 
+When the client's request is accepted, the client creates an input stream to receive data from its socket and an output stream to send data to the socket at the server's end of the channel.
+
+Then we'll simply send the text to the server using the inbuilt class and method PrintWriter and getOutputStream().
+PrintWriter is a class used to write any form of data e.g. int, float, double, String or Object.
+The getOutputStream() method of Java Socket class returns an output stream for the given socket.
+
+For receiving the text from the server we'll use:
+BufferedReader: It is a public Java class that reads text.
+InputStreamReader: It reads bytes and decodes them into characters using a specified charset.
+getInputStream(): It is a method of Java Socket class returns an input stream for the given socket.
+
+Then a scanner class object is initialized which will take the user input.
+A while loop runs until the client writes exit and we'll take the input from the user using scanner class ignoring lower case and upper case differences from the equalsIgnoreCase() method.
+
+For receiving the reply from server we've used the readLine() method of Console class which is used to read text from the console.
+The socket connection is closed explicitly once the message to the server is sent.
+In the program, the Client keeps reading input from a user and sends it to the server until “Exit” is typed.
+
+****************************************AT SERVER SIDE****************************************
+Server waits for the client to connect to it.
+Server is listening at port number 1234.
+Establish a Socket Connection:
+To write a server application two sockets are needed. 
+A ServerSocket which waits for the client requests (when a client makes a new Socket().
+A plain old Socket socket to use for communication with the client.
+
+We'll run an infinite while loop for getting multiple client requests.
+After creating ServerSocket, the server calls accept() method of the ServerSocket in order to listen for incoming connection requests from clients.
+Method accept() wait until a client requests a connection; then it returns a Socket that connects the client to the server. 
+The server then gets input and output streams from the Socket and uses them to communicate with the client.
+getOutputStream() method is used to send the output through the socket.
+A Separate Message regarding a new client connection to server is showed up if a new client tries to establish a connection. 
+We must use threads on server side so that whenever a client request comes, a separate thread can be assigned for handling each request.
+When the interaction ends, the client, server, or both, close the connection, and the server waits for a connection request from another client.
+After finishing, it is important to close the input/output streams as well.
+
+CONCLUSION :
+The transmission control protocol is a transport layer connection-oriented protocol that defined the standard of establishing and maintaining the conversation that will be used by the 
+applications to exchange the data. The TCP ensures the reliable transmission and delivery of our data packets.
+
